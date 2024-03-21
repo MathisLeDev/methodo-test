@@ -2,6 +2,8 @@ import React from 'react';
 import {Link} from "react-router-dom";
 
 const Main = () => {
+    const date = new Date("2021-09-01T00:00:00.000Z")
+    console.log(date)
     return (
         <div className={"flex-1 border flex flex-col min-h-screen" }>
             <div className={" flex flex-col m-auto"}>

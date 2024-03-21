@@ -1,0 +1,140 @@
+{
+  "uuid": "4813c32e-d042-4aac-b138-21b9d42a5df1",
+  "lastMigration": 32,
+  "name": "Mockoon",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3001,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "4eda9527-922b-4f70-91d8-3d20dbb3057f",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/atelier/workshop/vehicles",
+      "responses": [
+        {
+          "uuid": "38818136-c70f-4ac2-b835-c863873428cd",
+          "body": "[\r\n    {\r\n     \"id\": \"uuid\",\r\n     \"matriculation\": \"ABC-123-ABC\",\r\n     \"model\": \"206\",\r\n     \"brand\": \"Peugeot\",\r\n     \"owner\": {\r\n       \"id\": \"uuid\",\r\n       \"name\": \"Mathis Brouard\"\r\n     },\r\n     \"repair_type\": \"Carrosserie\",\r\n     \"repair_duration\": 180,\r\n     \"status\": 0\r\n   }\r\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "2ddcab79-0a30-4e14-8ded-356fff60e9bc",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "api/atelier/workshop/vehicles/affecation",
+      "responses": [
+        {
+          "uuid": "785b6352-e7b1-49c3-84b6-2b9c68853d9a",
+          "body": "{\n  \"message\":\"Ce mécanicien ou ce véhicule n'est pas disponible à cette date\"\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "date",
+              "value": "2021-09-01T00:00:00.000Z",
+              "invert": true,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "5582529d-0551-4938-97f9-fe92b7f1e6aa",
+          "body": "{\n  \"message\": \"Prise en charge le (date) planifié avec succès\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "4eda9527-922b-4f70-91d8-3d20dbb3057f"
+    },
+    {
+      "type": "route",
+      "uuid": "2ddcab79-0a30-4e14-8ded-356fff60e9bc"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [],
+  "callbacks": []
+}
