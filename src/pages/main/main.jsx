@@ -14,6 +14,12 @@ const Main = () => {
                             /login
                         </Link>
                         </li>
+                        
+                        <li className={"underline"}>
+                        <Link to={"/Atelier"}>
+                            /Atelier
+                        </Link>
+                        </li>
 
                         <li className={"underline"}>
                             <Link to={"/login"}>
