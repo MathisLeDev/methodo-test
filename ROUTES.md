@@ -26,6 +26,7 @@ To import the configuration file, open Mockoon and click on the `Import/Export` 
    [
     {
      "id": "uuid",
+     "img": "url",
      "matriculation": "ABC-123-ABC",
      "model": "206",
      "brand": "Peugeot",

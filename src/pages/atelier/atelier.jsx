@@ -1,46 +1,59 @@
 import React, { useState, useEffect } from "react";
-import { getData } from "../../api/api";
-import axios from "axios";
+import {getData, postDataWithoutToken} from "../../api/api";
 
 function Atelier(props) {
-    const [cars, setCars] = useState([]);
+    const [vehicles, setVehicles] = useState([]);
 
     useEffect(() => {
         // Fonction pour récupérer toutes les voitures de la base de données (simulé)
         const fetchCars = async () => {
             const data =  await getData("http://localhost:3001/api/atelier/workshop/vehicles")
-            console.log({ data });
+            if(typeof data === "object") {
+                console.log(data.data);
+                setVehicles(data.data);
+            }
         };
-
         // Appel de la fonction pour récupérer les voitures au chargement du composant
         fetchCars();
     }, []); // Le tableau vide en tant que dépendance signifie que cette fonction s'exécutera une seule fois lors du montage du composant
 
-    const handleAssign = async (carId) => {
-        try {
-            // Ici vous pouvez implémenter la logique d'attribution, par exemple envoyer une requête au serveur pour attribuer la voiture
-            // await axios.post("votre_endpoint_d_attribution", { carId });
 
-            // Pour l'exemple, supprimons simplement la voiture de la liste localement
-            setCars(cars.filter(car => car.id !== carId));
-        } catch (error) {
-            console.error("Erreur lors de l'attribution de la voiture :", error);
+    const handleVehicleAssignement = (id) => {
+        const url = "http://localhost:3001/api/workshop/vehicles/assignment";
+        const body =  {
+            "vehicle_id": "uuid",
+            "mechanic_id": "uuid",
+            "date": "2021-09-01T00:00:00.000Z"
         }
-    };
+        postDataWithoutToken(url, body).then((response) => {
+            alert(response.data.message)
+            console.log(response);
+        }).catch((error) => {
+            alert(error?.response?.data?.message || "Une erreur est survenue")
+            console.log(error);
+        })
+    }
 
     return (
         <div className="car-grid">
-            {/* Mapping à travers la liste des voitures pour afficher chaque voiture sous forme de carte */}
-            {cars.map((car, index) => (
-                <div key={index} className="car-card">
-                    <h3>Nom du véhicule: {car.name}</h3>
-                    <p>Marque: {car.brand}</p>
-                    <p>Propriétaire: {car.owner}</p>
-                    <p>Problème: {car.issue}</p>
-                    <p>Temps nécessaire à la réparation: {car.repairTime}</p>
-                    <button onClick={() => handleAssign(car.id)}>Assigner</button>
-                </div>
-            ))}
+            {vehicles.length > 0 ? vehicles.map((vehicle, index) => (
+                    <div className="card w-96 bg-base-100 shadow-xl m-4" key={index}>
+                        <figure><img src={ vehicle.img} alt="Shoes" /></figure>
+                        <div className="card-body">
+                            <h2 className="card-title">{vehicle.model} de {vehicle.brand}</h2>
+                            <p>Envoyé pour {vehicle.repair_type}</p>
+                            <p>Temps estimé de {vehicle.repair_duration}</p>
+                            <div className={"flex flex-row justify-between items-center"}>
+                                Propriétaire: {vehicle.owner.name}
+                                <div className="card-actions justify-end">
+                                    <button className="btn btn-primary" onClick={()=>handleVehicleAssignement(vehicle.id)}>Assigner</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+            )): <h1>Pas de voitures</h1>}
         </div>
     );
 }

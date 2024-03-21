@@ -17,7 +17,7 @@
       "responses": [
         {
           "uuid": "38818136-c70f-4ac2-b835-c863873428cd",
-          "body": "[\r\n    {\r\n     \"id\": \"uuid\",\r\n     \"matriculation\": \"ABC-123-ABC\",\r\n     \"model\": \"206\",\r\n     \"brand\": \"Peugeot\",\r\n     \"owner\": {\r\n       \"id\": \"uuid\",\r\n       \"name\": \"Mathis Brouard\"\r\n     },\r\n     \"repair_type\": \"Carrosserie\",\r\n     \"repair_duration\": 180,\r\n     \"status\": 0\r\n   }\r\n]",
+          "body": "[\r\n    {\r\n     \"id\": \"uuid\",\r\n     \"img\": \"https://imgs.search.brave.com/0pMXx6Y_of0oFUx86LZRSdGy6vF41JewL3Strl9eBKI/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jZG4u/dnJvb20uYmUvbWVk/aWEvcHVibGljL2Fy/dGljbGVzL05vbmUv/Z2FsbGVyeS8yMjU3/MC8yMDIxMDYyMjEw/MTkzNHBldTEuanBn\",\r\n     \"matriculation\": \"ABC-123-ABC\",\r\n     \"model\": \"206\",\r\n     \"brand\": \"Peugeot\",\r\n     \"owner\": {\r\n       \"id\": \"uuid\",\r\n       \"name\": \"Mathis Brouard\"\r\n     },\r\n     \"repair_type\": \"Carrosserie\",\r\n     \"repair_duration\": 180,\r\n     \"status\": 0\r\n   }\r\n]",
           "latency": 0,
           "statusCode": 200,
           "label": "",
@@ -121,6 +121,18 @@
     {
       "key": "Content-Type",
       "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
     }
   ],
   "proxyReqHeaders": [
