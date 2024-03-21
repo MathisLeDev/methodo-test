@@ -4,12 +4,7 @@ import axios from "axios";
 export const getData = (url) => {
     return new Promise((resolve, reject) => {
         try {
-        const token = localStorage.getItem('token')
-        if(!token) throw ("No token");
-        const config = {
-            headers: {Authorization: `Bearer ${token}`}
-        }
-        axios.get(url, config).then(res => {
+        axios.get(url).then(res => {
                 resolve(res)
             }).catch(err => {
                 reject(err);

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { getData } from "../../api/api";
 import axios from "axios";
 
 function Atelier(props) {
@@ -7,12 +8,8 @@ function Atelier(props) {
     useEffect(() => {
         // Fonction pour récupérer toutes les voitures de la base de données (simulé)
         const fetchCars = async () => {
-            try {
-                const response = await axios.get("votre_endpoint_pour_les_voitures");
-                setCars(response.data); // Met à jour l'état avec les données récupérées
-            } catch (error) {
-                console.error("Erreur lors de la récupération des voitures :", error);
-            }
+            const data =  await getData("http://localhost:3001/api/atelier/workshop/vehicles")
+            console.log({ data });
         };
 
         // Appel de la fonction pour récupérer les voitures au chargement du composant
