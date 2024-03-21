@@ -20,8 +20,8 @@ To import the configuration file, open Mockoon and click on the `Import/Export` 
 
 ### GET /api/atelier/workshop/vehicles/
 - Description: Returns all the vehicles in the workshop or empty array if no vehicles.
-- Response: 
-  - 200: 
+- Response:
+  - 200:
   ``` JSON
    [
     {
@@ -37,6 +37,19 @@ To import the configuration file, open Mockoon and click on the `Import/Export` 
      "repair_type": "Carrosserie",
      "repair_duration": 180,
      "status": 0
+   }
+  ]
+  ```
+
+### GET /api/atelier/workshop/mecanics/
+- Description: Returns all the vehicles in the workshop or empty array if no vehicles.
+- Response:
+  - 200:
+  ``` JSON
+   [
+    {
+     "id": "uuid",
+     "name": "url",
    }
   ]
   ```

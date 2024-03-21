@@ -92,6 +92,35 @@
         }
       ],
       "responseMode": null
+    },
+    {
+      "uuid": "0f9e59d3-5cae-4211-a78e-b9ad80668b4d",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/atelier/workshop/mecanics/",
+      "responses": [
+        {
+          "uuid": "35dc62d7-b569-497a-b1f5-bdce55086716",
+          "body": "[\r\n    {\r\n        \"id\": \"uuid\",\r\n        \"name\": \"Thomas Fagot\"\r\n    },\r\n    {\r\n        \"id\": \"uuid\",\r\n        \"name\": \"Mathis Le Mécanicien\"\r\n    }\r\n]\r\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
     }
   ],
   "rootChildren": [
@@ -102,6 +131,10 @@
     {
       "type": "route",
       "uuid": "2ddcab79-0a30-4e14-8ded-356fff60e9bc"
+    },
+    {
+      "type": "route",
+      "uuid": "0f9e59d3-5cae-4211-a78e-b9ad80668b4d"
     }
   ],
   "proxyMode": false,
