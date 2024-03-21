@@ -42,7 +42,7 @@
       "type": "http",
       "documentation": "",
       "method": "post",
-      "endpoint": "api/atelier/workshop/vehicles/affecation",
+      "endpoint": "api/workshop/vehicles/assignment",
       "responses": [
         {
           "uuid": "785b6352-e7b1-49c3-84b6-2b9c68853d9a",

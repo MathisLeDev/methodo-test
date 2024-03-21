@@ -39,7 +39,7 @@ To import the configuration file, open Mockoon and click on the `Import/Export` 
   ]
   ```
 
-### POST api/atelier/workshop/vehicles/affectation
+### POST api/workshop/vehicles/assignment
 - Description: Affect the mechanic to the car uuid on a date provided in the body.
 - Requirements: the date must be equal to "2021-09-01T00:00:00.000Z" to get 200
 - Request: 
