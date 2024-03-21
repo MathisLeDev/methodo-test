@@ -1,6 +1,7 @@
 
 # What is this file is for ? 🦝
-This file is for the routes of the API handled by Mockoon. 
+This file is for the routes of the API handled by **MOCKOON**. 
+
 It will specify the routes and their DTO. And how to import the configuration file in Mockoon.
 
 
