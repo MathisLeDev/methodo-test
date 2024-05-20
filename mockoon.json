@@ -1,23 +1,23 @@
 {
-  "uuid": "4813c32e-d042-4aac-b138-21b9d42a5df1",
+  "uuid": "087c2d4c-e5f5-4e9c-90bb-236fb8d1bb6c",
   "lastMigration": 32,
-  "name": "Mockoon",
+  "name": "METHODO TEST (copy)",
   "endpointPrefix": "",
   "latency": 0,
-  "port": 3001,
+  "port": 3002,
   "hostname": "",
   "folders": [],
   "routes": [
     {
-      "uuid": "4eda9527-922b-4f70-91d8-3d20dbb3057f",
+      "uuid": "ecbc8613-6568-4295-8cb7-07ae3f0a2f6d",
       "type": "http",
       "documentation": "",
       "method": "get",
       "endpoint": "api/atelier/workshop/vehicles",
       "responses": [
         {
-          "uuid": "38818136-c70f-4ac2-b835-c863873428cd",
-          "body": "[\r\n    {\r\n     \"id\": \"uuid\",\r\n     \"img\": \"https://imgs.search.brave.com/0pMXx6Y_of0oFUx86LZRSdGy6vF41JewL3Strl9eBKI/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9jZG4u/dnJvb20uYmUvbWVk/aWEvcHVibGljL2Fy/dGljbGVzL05vbmUv/Z2FsbGVyeS8yMjU3/MC8yMDIxMDYyMjEw/MTkzNHBldTEuanBn\",\r\n     \"matriculation\": \"ABC-123-ABC\",\r\n     \"model\": \"206\",\r\n     \"brand\": \"Peugeot\",\r\n     \"owner\": {\r\n       \"id\": \"uuid\",\r\n       \"name\": \"Mathis Brouard\"\r\n     },\r\n     \"repair_type\": \"Carrosserie\",\r\n     \"repair_duration\": 180,\r\n     \"status\": 0\r\n   }\r\n]",
+          "uuid": "140d1a69-e3a3-40e3-a38c-ca2fd6b19cf9",
+          "body": "[\r\n    {\r\n     \"id\": \"1\",\r\n     \"img\": \"https://cdn.vroomsupport.be/articles/None/gallery/22570/20210622101934peu1.jpg\",\r\n     \"matriculation\": \"ABC-123-ABC\",\r\n     \"model\": \"206\",\r\n     \"brand\": \"Peugeot\",\r\n     \"owner\": {\r\n       \"id\": \"uuid\",\r\n       \"name\": \"Thomas Fagot\"\r\n     },\r\n     \"repair_type\": \"Pneumatique\",\r\n     \"repair_duration\": 180,\r\n     \"status\": 0\r\n   },\r\n   {\r\n     \"id\": \"2\",\r\n     \"img\": \"https://imgs.search.brave.com/TX5ZUINppY2umsH1b_z-eDE4jwH0epjiIzKKOKrnIOo/rs:fit:860:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy81/LzVkL0ZvcmRfS2Ff/SUlfZnJvbnRfMjAw/OTEyMDUuanBn\",\r\n     \"matriculation\": \"ABC-123-ABC\",\r\n     \"model\": \"KA\",\r\n     \"brand\": \"Ford\",\r\n     \"owner\": {\r\n       \"id\": \"uuid\",\r\n       \"name\": \"Thomas Fagot\"\r\n     },\r\n     \"repair_type\": \"Carrosserie\",\r\n     \"repair_duration\": 240,\r\n     \"status\": 1\r\n   }\r\n]",
           "latency": 0,
           "statusCode": 200,
           "label": "",
@@ -38,14 +38,14 @@
       "responseMode": null
     },
     {
-      "uuid": "2ddcab79-0a30-4e14-8ded-356fff60e9bc",
+      "uuid": "93ab519c-9b71-472b-b684-3eb9e6132851",
       "type": "http",
       "documentation": "",
       "method": "post",
       "endpoint": "api/workshop/vehicles/assignment",
       "responses": [
         {
-          "uuid": "785b6352-e7b1-49c3-84b6-2b9c68853d9a",
+          "uuid": "70b0ffbb-67a7-4ac8-824b-11fe037efa19",
           "body": "{\n  \"message\":\"Ce mécanicien ou ce véhicule n'est pas disponible à cette date\"\n}",
           "latency": 0,
           "statusCode": 400,
@@ -55,15 +55,7 @@
           "filePath": "",
           "databucketID": "",
           "sendFileAsBody": false,
-          "rules": [
-            {
-              "target": "body",
-              "modifier": "date",
-              "value": "2021-09-01T00:00:00.000Z",
-              "invert": true,
-              "operator": "equals"
-            }
-          ],
+          "rules": [],
           "rulesOperator": "OR",
           "disableTemplating": false,
           "fallbackTo404": false,
@@ -72,7 +64,7 @@
           "callbacks": []
         },
         {
-          "uuid": "5582529d-0551-4938-97f9-fe92b7f1e6aa",
+          "uuid": "dc59cea5-81b9-45f5-9d2a-367e7558498e",
           "body": "{\n  \"message\": \"Prise en charge le (date) planifié avec succès\"\n}",
           "latency": 0,
           "statusCode": 200,
@@ -89,20 +81,110 @@
           "default": true,
           "crudKey": "id",
           "callbacks": []
+        },
+        {
+          "uuid": "254fd5bc-4124-408d-9cca-6e8326373b49",
+          "body": "{\n  \"message\":\"Cet emplacement est déjà pris\"\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "place_id",
+              "value": "1",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "place_id",
+              "value": "6",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
+        },
+        {
+          "uuid": "9f22e536-cb25-4354-ada9-31e80f184407",
+          "body": "{\n  \"message\": \"Ce véhicule n'est pas à réparer\"\n}",
+          "latency": 0,
+          "statusCode": 400,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "vehicle_id",
+              "value": "2",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": false,
+          "crudKey": "id",
+          "callbacks": []
         }
       ],
       "responseMode": null
     },
     {
-      "uuid": "0f9e59d3-5cae-4211-a78e-b9ad80668b4d",
+      "uuid": "2ba6dafc-10de-4556-8959-69dd74b7431b",
       "type": "http",
       "documentation": "",
       "method": "get",
       "endpoint": "api/atelier/workshop/mecanics/",
       "responses": [
         {
-          "uuid": "35dc62d7-b569-497a-b1f5-bdce55086716",
-          "body": "[\r\n    {\r\n        \"id\": \"uuid\",\r\n        \"name\": \"Thomas Fagot\"\r\n    },\r\n    {\r\n        \"id\": \"uuid\",\r\n        \"name\": \"Mathis Le Mécanicien\"\r\n    }\r\n]\r\n",
+          "uuid": "67a4f27d-19c5-4ce5-8e2b-ab9e75587de3",
+          "body": "[\r\n    {\r\n        \"id\": \"1\",\r\n        \"name\": \"Thomas Fagot\"\r\n    },\r\n    {\r\n        \"id\": \"2\",\r\n        \"name\": \"Mathis Le Mécanicien\"\r\n    }\r\n]\r\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null
+    },
+    {
+      "uuid": "71375fab-5ff7-4122-9ee2-44c2720b145b",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "api/atelier/workshop/places",
+      "responses": [
+        {
+          "uuid": "bba8ceff-650d-4b61-8c24-d704d816df03",
+          "body": "[\r\n    {\r\n        \"id\": \"1\",\r\n        \"name\": \"G1\",\r\n        \"available\": false\r\n    },\r\n    {\r\n        \"id\": \"2\",\r\n        \"name\": \"G2\",\r\n        \"available\": true\r\n    },\r\n    {\r\n        \"id\": \"3\",\r\n        \"name\": \"G3\",\r\n        \"available\": true\r\n    },\r\n    {\r\n        \"id\": \"4\",\r\n        \"name\": \"D1\",\r\n        \"available\": true\r\n    },\r\n    {\r\n        \"id\": \"5\",\r\n        \"name\": \"D2\",\r\n        \"available\": true\r\n    },\r\n    {\r\n        \"id\": \"6\",\r\n        \"name\": \"D3\",\r\n        \"available\": false\r\n    }\r\n]\r\n",
           "latency": 0,
           "statusCode": 200,
           "label": "",
@@ -126,15 +208,19 @@
   "rootChildren": [
     {
       "type": "route",
-      "uuid": "4eda9527-922b-4f70-91d8-3d20dbb3057f"
+      "uuid": "ecbc8613-6568-4295-8cb7-07ae3f0a2f6d"
     },
     {
       "type": "route",
-      "uuid": "2ddcab79-0a30-4e14-8ded-356fff60e9bc"
+      "uuid": "93ab519c-9b71-472b-b684-3eb9e6132851"
     },
     {
       "type": "route",
-      "uuid": "0f9e59d3-5cae-4211-a78e-b9ad80668b4d"
+      "uuid": "2ba6dafc-10de-4556-8959-69dd74b7431b"
+    },
+    {
+      "type": "route",
+      "uuid": "71375fab-5ff7-4122-9ee2-44c2720b145b"
     }
   ],
   "proxyMode": false,
